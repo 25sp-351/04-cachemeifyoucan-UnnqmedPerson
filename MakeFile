@@ -1,0 +1,13 @@
+CC = gcc
+CFLAGS = -g -Wall
+
+all: lru lfu
+
+lru: main.c cache.c
+    $(CC) $(CFLAGS) -o lru main.c cache.c -DLRU_POLICY
+
+lfu: main.c cache.c
+    $(CC) $(CFLAGS) -o lfu main.c cache.c -DLFU_POLICY
+
+clean:
+    rm -f lru lfu
